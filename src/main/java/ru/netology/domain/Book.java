@@ -10,4 +10,8 @@ public class Book extends Product {
         super(id, name, price);
         this.setAuthor(author);
     }
+
+    public boolean matches(String search) {
+        return super.matches(search) || this.getAuthor().contains(search);
+    }
 }

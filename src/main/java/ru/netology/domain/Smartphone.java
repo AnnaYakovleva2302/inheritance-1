@@ -10,4 +10,8 @@ public class Smartphone extends Product {
         super(id, name, price);
         this.setVendor(vendor);
     }
+
+    public boolean matches(String search) {
+        return super.matches(search) || this.getVendor().contains(search);
+    }
 }
