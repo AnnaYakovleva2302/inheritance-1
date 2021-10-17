@@ -72,4 +72,20 @@ public class ProductManagerTest {
         Product[] actual = manager.searchBy("iPhone");
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSearchProductsByName() {
+        Product product1 = new Product(1, "Масло", 110);
+        Product product2 = new Product(2, "Хлеб", 70);
+        Product product3 = new Product(3, "Колбаса", 300);
+        ProductRepository repository = new ProductRepository();
+        ProductManager manager = new ProductManager(repository);
+        manager.add(product1);
+        manager.add(product2);
+        manager.add(product3);
+
+        Product[] expected = { product2 };
+        Product[] actual = manager.searchBy("Хлеб");
+        assertArrayEquals(expected, actual);
+    }
 }
