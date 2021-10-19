@@ -8,7 +8,6 @@ import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductManagerTest {
     private Book book1 = new Book(1, "Еретики Дюны", 300, "Фрэнк Герберт");
@@ -76,85 +75,5 @@ public class ProductManagerTest {
         Product[] expected = {};
         Product[] actual = manager.searchBy("Икра черная");
         assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldMatchProduct() {
-        Product product = new Product(1, "Масло", 110);
-        boolean expected = true;
-        boolean actual = product.matches("Масло");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldNotMatchProduct() {
-        Product product = new Product(1, "Масло", 110);
-        boolean expected = false;
-        boolean actual = product.matches("Хлеб");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldMatchBookByName() {
-        Book book = new Book(1, "Дюна", 300, "Фрэнк Герберт");
-        boolean expected = true;
-        boolean actual = book.matches("Дюна");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldNotMatchBookByName() {
-        Book book = new Book(1, "Дюна", 300, "Фрэнк Герберт");
-        boolean expected = false;
-        boolean actual = book.matches("Хлеб");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldMatchBookByAuthor() {
-        Book book = new Book(1, "Дюна", 300, "Фрэнк Герберт");
-        boolean expected = true;
-        boolean actual = book.matches("Герберт");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldNotMatchBookByAuthor() {
-        Book book = new Book(1, "Дюна", 300, "Фрэнк Герберт");
-        boolean expected = false;
-        boolean actual = book.matches("Франц");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldMatchSmartphoneByName() {
-        Smartphone phone = new Smartphone(1, "iPhone 11", 50000, "Apple");
-        boolean expected = true;
-        boolean actual = phone.matches("iPhone");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldNotMatchSmartphoneByName() {
-        Smartphone phone = new Smartphone(1, "iPhone 11", 50000, "Apple");
-        boolean expected = false;
-        boolean actual = phone.matches("MI");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldMatchSmartphoneByVendor() {
-        Smartphone phone = new Smartphone(1, "iPhone 11", 50000, "Apple");
-        boolean expected = true;
-        boolean actual = phone.matches("Apple");
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldNotMatchSmartphoneByVendor() {
-        Smartphone phone = new Smartphone(1, "iPhone 11", 50000, "Apple");
-        boolean expected = false;
-        boolean actual = phone.matches("Xiaomi");
-        assertEquals(expected, actual);
     }
 }
