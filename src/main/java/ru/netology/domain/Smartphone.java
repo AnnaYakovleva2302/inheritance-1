@@ -13,6 +13,7 @@ public class Smartphone extends Product {
         this.setVendor(vendor);
     }
 
+    @Override
     public boolean matches(String search) {
         return super.matches(search) || this.getVendor().contains(search);
     }

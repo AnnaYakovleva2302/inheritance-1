@@ -13,6 +13,7 @@ public class Book extends Product {
         this.setAuthor(author);
     }
 
+    @Override
     public boolean matches(String search) {
         return super.matches(search) || this.getAuthor().contains(search);
     }
